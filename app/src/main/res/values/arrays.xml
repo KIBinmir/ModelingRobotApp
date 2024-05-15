@@ -1,12 +1,32 @@
 <resources>
     <!-- Reply Preference -->
-    <string-array name="reply_entries">
-        <item>Reply</item>
-        <item>Reply to all</item>
+    <string-array name="names_robots">
+        <item>Декарт</item>
+        <item>Цилиндр</item>
+        <item>Колер</item>
+        <item>Скара</item>
     </string-array>
 
-    <string-array name="reply_values">
-        <item>reply</item>
-        <item>reply_all</item>
+    <string-array name="type_links">
+        <item>Круглое сплошное</item>
+        <item>Круглое кольцевое</item>
+        <item>Прямоугольное сплошное</item>
+        <item>Прямоугольное тонкостенное</item>
+    </string-array>
+
+    <string-array name="materials">
+        <item>Аллюминий</item>
+        <item>Сталь</item>
+        <item>Пластмасса</item>
+    </string-array>
+
+    <string-array name="type_moving">
+        <item>Непрерывное</item>
+        <item>Позиционное</item>
+    </string-array>
+
+    <string-array name="type_coorsinates">
+        <item>Обобщённые</item>
+        <item>Декартовые</item>
     </string-array>
 </resources>

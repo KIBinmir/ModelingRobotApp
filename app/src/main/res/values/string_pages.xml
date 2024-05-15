@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="robot_tab">Робот</string>
+    <string name="links_tab">Звенья</string>
+    <string name="motors_tab">Двигатели</string>
+    <string name="regulators_tab">Регуляторы</string>
+</resources>
