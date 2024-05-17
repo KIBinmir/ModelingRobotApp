@@ -8,7 +8,7 @@
     tools:context=".ParametersRobot">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageRobot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@tools:sample/avatars" />
@@ -42,9 +42,9 @@
             android:layout_weight="1" />
 
         <Spinner
-            android:id="@+id/spinner6"
+            android:id="@+id/spinner_robots"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:entries="@array/names_robots" />
 
@@ -83,11 +83,13 @@
             android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_l1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_l1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />
@@ -108,11 +110,13 @@
             android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_l2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_l2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />
@@ -145,11 +149,13 @@
             android:layout_weight="1" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_q1min"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_q1min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />
@@ -165,11 +171,13 @@
             android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_q1max"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_q1max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />
@@ -181,11 +189,13 @@
             android:layout_weight="1" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_q2min"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_q2min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />
@@ -201,11 +211,13 @@
             android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_q2max"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_q2max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="hint" />

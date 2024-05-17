@@ -1,4 +1,4 @@
-package com.example.modelingrobots
+package com.example.modelingrobots.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.modelingrobots.R
+import com.example.modelingrobots.viewmodels.RegulatorsViewModel
 
 class RegulatorsFragment : Fragment() {
 
