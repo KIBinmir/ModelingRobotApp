@@ -1,4 +1,4 @@
-package com.example.modelingrobots.entities
+package com.example.modelingrobots.databases.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

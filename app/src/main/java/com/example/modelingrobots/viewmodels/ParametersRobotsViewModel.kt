@@ -11,4 +11,5 @@ class ParametersRobotsViewModel: ViewModel() {
     val q1max = MutableLiveData<String>("1.0")
     val q2min = MutableLiveData<String>("1.0")
     val q2max = MutableLiveData<String>("1.0")
+
 }

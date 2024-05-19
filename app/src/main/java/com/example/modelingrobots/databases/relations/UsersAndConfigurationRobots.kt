@@ -1,9 +1,9 @@
-package com.example.modelingrobots.relations
+package com.example.modelingrobots.databases.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.example.modelingrobots.entities.ConfigurationsRobots
-import com.example.modelingrobots.entities.User
+import com.example.modelingrobots.databases.entities.ConfigurationsRobots
+import com.example.modelingrobots.databases.entities.User
 
 
 data class UsersAndConfigurationRobots(

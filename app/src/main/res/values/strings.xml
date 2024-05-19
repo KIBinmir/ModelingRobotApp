@@ -2,28 +2,15 @@
     <string name="app_name">ModelingRobots</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -32,6 +19,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
     <string name="title_activity_choose_incision_link">ChooseIncisionLink</string>
     <string name="t">t</string>
     <string name="q1">q1</string>
@@ -40,4 +28,14 @@
     <string name="text_type_moving">Тип движения</string>
     <string name="text_type_robots">Тип робота</string>
     <string name="text_switch">Отобразить траекторию робота</string>
+    <string name="x">x:</string>
+    <string name="y">y:</string>
+    <string name="l1">L1:</string>
+    <string name="l2">L2:</string>
+    <string name="q1_limit"> &lt; q1 &lt; </string>
+    <string name="q2_limit"> &lt; q2 &lt; </string>
+    <string name="position_grab">Положение схвата</string>
+    <string name="related_coordinates">Обобщённые координаты</string>
+    <string name="links_lengths">Длина звеньев</string>
+    <string name="moving_constraights">Ограничения по перемещению</string>
 </resources>

@@ -15,6 +15,10 @@ public class RobotSkara extends Robot{
     }
 
     OrientationLink orientationLink = OrientationLink.LEFT;
+
+    public RobotSkara(double l1, double l2, double q1min, double q1max, double q2min, double q2max) {
+        super(l1, l2, q1min, q1max, q2min, q2max);
+    }
     @Override
     public double calcQ1() {
         double r = Math.sqrt(x*x + y*y);
@@ -43,5 +47,13 @@ public class RobotSkara extends Robot{
 
     public void setOrientation(OrientationLink orientation) {
         orientationLink = orientation;
+    }
+
+    @Override
+    public void correctQ1Q2Constraints() {
+        q2Min = q2Min < -Math.PI ? -Math.PI : q2Min;
+        q2Max = q2Max > Math.PI ? Math.PI : q2Max;
+        q1Max = q1Max > Math.PI ? Math.PI : q1Max;
+        q1Min = q1Min < -Math.PI ? -Math.PI : q1Min;
     }
 }
