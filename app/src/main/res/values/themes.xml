@@ -5,5 +5,11 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ModelingRobots" parent="Base.Theme.ModelingRobots"/>
+    <style name="Theme.ModelingRobots" parent="Base.Theme.ModelingRobots">
+    </style>
+    <style name="TextViewStyle" parent="@style/Theme.AppCompat.Light">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

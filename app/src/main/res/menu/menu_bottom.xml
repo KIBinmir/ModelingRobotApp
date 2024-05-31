@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/parametersRobot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="@string/robot_tab" />
     <item
+        android:id="@+id/incisionLinkFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="@string/links_tab" />
     <item
+        android:id="@+id/motorsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="@string/motors_tab" />
     <item
+        android:id="@+id/regulatorsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="@string/regulators_tab" />
+    <item
+        android:id="@+id/trajectoryFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/trajectory_tab" />
 </menu>

@@ -4,4 +4,5 @@
     <string name="links_tab">Звенья</string>
     <string name="motors_tab">Двигатели</string>
     <string name="regulators_tab">Регуляторы</string>
+    <string name="trajectory_tab">Траектория</string>
 </resources>

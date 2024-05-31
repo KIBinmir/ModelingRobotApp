@@ -3,6 +3,11 @@ package com.example.modelingrobots.databases
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
+import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndMotors
+import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndRegulators
+import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndSectionLinks
+import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndTrajectories
+import com.example.modelingrobots.databases.dataclasses.DataUsersAndConfigurationsRobots
 import com.example.modelingrobots.databases.entities.ConfigurationsRobots
 import com.example.modelingrobots.databases.entities.Motors
 import com.example.modelingrobots.databases.entities.Regulators
@@ -27,22 +32,25 @@ interface RobotsDao {
     @Query("SELECT * FROM trajectories ORDER BY :order")
     fun getTrajectories(order:String): List<Trajectories>
     @Transaction
-    @Query("SELECT * FROM configurationsrobots WHERE robot_id = :robotId")
-    fun getUsersAndRobotsConfiguration(robotId: Int): List<UsersAndConfigurationRobots>
+    @Query("SELECT user_id, robot_id FROM configurationsrobots")
+    fun getUsersAndRobotsConfiguration(): List<DataUsersAndConfigurationsRobots>
     @Transaction
-    @Query("SELECT * FROM sectionlinks WHERE robot_id = :robotId")
-    fun getRobotsConfigurationAndSectionLinks(robotId: Int): List<ConfigurationRobotsAndSectionLinks>
+    @Query("SELECT user_id, robot_id FROM configurationsrobots WHERE user_id = :userId")
+    fun getUserAndRobotsConfiguration(userId: Int): List<DataUsersAndConfigurationsRobots>
+    @Transaction
+    @Query("SELECT robot_id, sectionLink_id FROM sectionlinks WHERE robot_id = :robotId")
+    fun getRobotConfigurationAndSectionLinks(robotId: Int): List<DataRobotsConfigurationAndSectionLinks>
 
     @Transaction
-    @Query("SELECT * FROM motors WHERE robot_id = :robotId")
-    fun getRobotsConfigurationAndMotors(robotId: Int): List<ConfigurationRobotsAndMotors>
+    @Query("SELECT robot_id, motors_id FROM motors WHERE robot_id = :robotId")
+    fun getRobotConfigurationAndMotors(robotId: Int): List<DataRobotsConfigurationAndMotors>
 
     @Transaction
-    @Query("SELECT * FROM regulators WHERE robot_id = :robotId")
-    fun getRobotsConfigurationAndRegulators(robotId: Int): List<ConfigurationRobotsAndRegulators>
+    @Query("SELECT robot_id, regulators_id FROM regulators WHERE robot_id = :robotId")
+    fun getRobotConfigurationAndRegulators(robotId: Int): List<DataRobotsConfigurationAndRegulators>
 
     @Transaction
-    @Query("SELECT * FROM trajectories WHERE robot_id = :robotId")
-    fun getRobotsConfigurationAndTrajectories(robotId: Int): List<ConfigurationRobotsAndTrajectory>
+    @Query("SELECT robot_id, trajectory_id FROM trajectories WHERE robot_id = :robotId")
+    fun getRobotConfigurationAndTrajectories(robotId: Int): List<DataRobotsConfigurationAndTrajectories>
 
 }

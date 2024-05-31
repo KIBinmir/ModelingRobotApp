@@ -10,7 +10,7 @@ data class UsersAndConfigurationRobots(
     @Embedded val user: User,
     @Relation(
         parentColumn = "user_id",
-        entityColumn = "user_id"
+        entityColumn = "robot_id"
     )
     val listConfigurationRobots: List<ConfigurationsRobots>
 )

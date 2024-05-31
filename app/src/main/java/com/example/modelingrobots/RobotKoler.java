@@ -16,7 +16,7 @@ public class RobotKoler extends Robot {
 
     @Override
     public double calcX() {
-        return L2*Math.sin(q2);
+        return -L2*Math.sin(q2);
     }
 
     @Override

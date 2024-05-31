@@ -6,12 +6,12 @@
     app:startDestination="@id/parametersRobot">
     <fragment
         android:id="@+id/parametersRobot"
-        android:name="com.example.modelingrobots.ParametersRobot"
+        android:name="com.example.modelingrobots.fragments.ParametersRobot"
         android:label="fragment_parameters_robot"
         tools:layout="@layout/fragment_parameters_robot" />
     <fragment
         android:id="@+id/incisionLinkFragment"
-        android:name="com.example.modelingrobots.IncisionLinkFragment"
+        android:name="com.example.modelingrobots.fragments.IncisionLinkFragment"
         android:label="fragment_incision_link"
         tools:layout="@layout/fragment_incision_link" />
     <fragment
@@ -24,4 +24,9 @@
         android:name="com.example.modelingrobots.fragments.RegulatorsFragment"
         android:label="fragment_regulators"
         tools:layout="@layout/fragment_regulators" />
+    <fragment
+        android:id="@+id/trajectoryFragment"
+        android:name="com.example.modelingrobots.fragments.TrajectoryFragment"
+        android:label="fragment_trajectory"
+        tools:layout="@layout/fragment_trajectory" />
 </navigation>
