@@ -10,7 +10,9 @@
     <ImageView
         android:id="@+id/imageRobot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/robot_dekart" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +35,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/text_type_robots" />
+            android:text="@string/text_type_robots"
+            android:textSize="16sp" />
 
         <Space
             android:layout_width="wrap_content"
@@ -72,15 +75,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/l1"
-            android:textSize="16sp" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_input_l1"
             android:layout_width="wrap_content"
@@ -91,22 +85,13 @@
                 android:id="@+id/et_l1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/l1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/l2"
-            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_input_l2"
@@ -118,7 +103,7 @@
                 android:id="@+id/et_l2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/l2" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -157,7 +142,7 @@
                 android:id="@+id/et_q1min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/q1_min" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -179,7 +164,7 @@
                 android:id="@+id/et_q1max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/q1_max" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
@@ -197,7 +182,7 @@
                 android:id="@+id/et_q2min"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/q2_min" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -219,7 +204,7 @@
                 android:id="@+id/et_q2max"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/q2_max" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space

@@ -4,25 +4,30 @@
         android:id="@+id/parametersRobot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/ic_robot"
         android:title="@string/robot_tab" />
     <item
         android:id="@+id/incisionLinkFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/ic_circle"
         android:title="@string/links_tab" />
     <item
         android:id="@+id/motorsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/ic_motor"
         android:title="@string/motors_tab" />
     <item
         android:id="@+id/regulatorsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/ic_pid"
         android:title="@string/regulators_tab" />
     <item
         android:id="@+id/trajectoryFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:icon="@drawable/ic_ft"
         android:title="@string/trajectory_tab" />
 </menu>

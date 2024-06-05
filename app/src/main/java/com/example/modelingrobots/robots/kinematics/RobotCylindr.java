@@ -1,4 +1,4 @@
-package com.example.modelingrobots;
+package com.example.modelingrobots.robots.kinematics;
 
 public class RobotCylindr extends Robot{
     public RobotCylindr(double l1, double l2, double q1min, double q1max, double q2min, double q2max) {

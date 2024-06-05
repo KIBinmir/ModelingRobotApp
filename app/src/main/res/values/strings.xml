@@ -30,12 +30,25 @@
     <string name="text_switch">Отобразить траекторию робота</string>
     <string name="x">x:</string>
     <string name="y">y:</string>
-    <string name="l1">L1:</string>
-    <string name="l2">L2:</string>
+    <string name="l1">L1</string>
+    <string name="l2">L2</string>
     <string name="q1_limit"> &lt; q1 &lt; </string>
     <string name="q2_limit"> &lt; q2 &lt; </string>
+    <string name="q1_min"> q1_min </string>
+    <string name="q2_min"> q2_min </string>
+    <string name="q1_max"> q1_max </string>
+    <string name="q2_max"> q2_max </string>
     <string name="position_grab">Положение схвата</string>
     <string name="related_coordinates">Обобщённые координаты</string>
     <string name="links_lengths">Длина звеньев</string>
     <string name="moving_constraights">Ограничения по перемещению</string>
+    <string name="kp1">kp1</string>
+    <string name="kp2">kp2</string>
+    <string name="ki2">ki2</string>
+    <string name="ki1">ki1</string>
+    <string name="kd2">kd2</string>
+    <string name="kd1">kd1</string>
+    <string name="description_image_section">Сечение звена робота</string>
+    <string name="type_section">Тип сечения</string>
+    <string name="tv_material">Материал</string>
 </resources>

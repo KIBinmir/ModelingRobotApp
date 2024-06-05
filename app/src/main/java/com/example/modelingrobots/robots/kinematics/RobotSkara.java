@@ -1,4 +1,4 @@
-package com.example.modelingrobots;
+package com.example.modelingrobots.robots.kinematics;
 
 public class RobotSkara extends Robot{
     public enum OrientationLink {

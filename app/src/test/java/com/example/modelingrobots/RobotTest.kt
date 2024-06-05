@@ -1,5 +1,8 @@
 package com.example.modelingrobots
 
+import com.example.modelingrobots.robots.kinematics.Robot
+import com.example.modelingrobots.robots.kinematics.RobotDekart
+import com.example.modelingrobots.robots.kinematics.RobotKoler
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -8,7 +11,14 @@ class RobotTest {
     private lateinit var robot: Robot
     @Before
     fun setUp() {
-        robot = RobotDekart(1.0, 1.0, 0.0, 1.0, 0.0, 1.0)
+        robot = RobotDekart(
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0
+        )
         robot.setQ1Min(0.0)
         robot.setQ1Max(1.2)
         robot.setQ2Min(0.0)
@@ -48,7 +58,14 @@ class RobotTest {
     }*/
     @Test
     fun RobotKolergetXY() {
-        robot = RobotKoler(1.0, 0.5, 0.0, 0.9, -Math.PI/2, Math.PI/2)
+        robot = RobotKoler(
+            1.0,
+            0.5,
+            0.0,
+            0.9,
+            -Math.PI / 2,
+            Math.PI / 2
+        )
         robot.setQ1(0.5)
         robot.setQ2(0.0)
         var x = robot.calcX()
