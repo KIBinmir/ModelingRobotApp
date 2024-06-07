@@ -68,8 +68,8 @@ class RobotTest {
         )
         robot.setQ1(0.5)
         robot.setQ2(0.0)
-        var x = robot.calcX()
-        var y = robot.calcY()
+        var x = robot.calcX(0.5, 0.0)
+        var y = robot.calcY(0.5, 0.0)
         Assert.assertEquals(0.0, x, 0.001);
         Assert.assertEquals(robot.getQ1()+robot.L2*Math.cos(robot.getQ2()), y, 0.001);
     }

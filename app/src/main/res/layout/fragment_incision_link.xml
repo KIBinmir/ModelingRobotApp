@@ -9,63 +9,62 @@
     tools:context=".fragments.IncisionLinkFragment">
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/spinner_section"
         android:layout_width="150dp"
         android:layout_height="48dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:entries="@array/type_links"
-        app:layout_constraintBottom_toTopOf="@id/barrier2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
+        app:layout_constraintBottom_toTopOf="@id/barrier_type_section"
+        app:layout_constraintEnd_toStartOf="@+id/btn_choose_section"
+        app:layout_constraintStart_toEndOf="@+id/tv_type_section"
+        app:layout_constraintTop_toBottomOf="@id/barrier_image_section" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tv_type_section"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="@string/type_section"
-        app:layout_constraintBottom_toTopOf="@id/barrier2"
-        app:layout_constraintEnd_toStartOf="@+id/spinner4"
+        app:layout_constraintBottom_toTopOf="@id/barrier_type_section"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_section"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_image_section" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+        android:id="@+id/barrier_image_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="imageView" />
+        app:constraint_referenced_ids="imageSection" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/description_image_section"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/think_circle_section"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier2"
+        android:id="@+id/barrier_type_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="spinner4,textView24" />
+        app:constraint_referenced_ids="spinner_section,tv_type_section" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tv_material"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -73,33 +72,33 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="@string/tv_material"
-        app:layout_constraintBottom_toBottomOf="@id/barrier3"
-        app:layout_constraintEnd_toStartOf="@+id/spinner5"
+        app:layout_constraintBottom_toBottomOf="@id/barrier_material"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_material"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier2" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_type_section" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/spinner_material"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:entries="@array/materials"
-        app:layout_constraintBottom_toBottomOf="@id/barrier3"
+        app:layout_constraintBottom_toBottomOf="@id/barrier_material"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@id/barrier2" />
+        app:layout_constraintStart_toEndOf="@+id/tv_material"
+        app:layout_constraintTop_toBottomOf="@id/barrier_type_section" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier3"
+        android:id="@+id/barrier_material"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="spinner5,textView25" />
+        app:constraint_referenced_ids="spinner_material,tv_material" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout10"
@@ -111,9 +110,10 @@
         app:layout_constraintEnd_toStartOf="@+id/textInputLayout11"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier3">
+        app:layout_constraintTop_toBottomOf="@id/barrier_material">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_param1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -129,9 +129,10 @@
         app:layout_constraintEnd_toStartOf="@+id/textInputLayout12"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout10"
-        app:layout_constraintTop_toBottomOf="@id/barrier3">
+        app:layout_constraintTop_toBottomOf="@id/barrier_material">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_param2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -147,12 +148,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout11"
-        app:layout_constraintTop_toBottomOf="@id/barrier3">
+        app:layout_constraintTop_toBottomOf="@id/barrier_material">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_param3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_choose_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner_section"
+        app:layout_constraintTop_toBottomOf="@+id/imageSection" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

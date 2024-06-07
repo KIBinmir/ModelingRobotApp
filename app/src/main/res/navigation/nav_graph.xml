@@ -29,4 +29,9 @@
         android:name="com.example.modelingrobots.fragments.TrajectoryFragment"
         android:label="fragment_trajectory"
         tools:layout="@layout/fragment_trajectory" />
+    <fragment
+        android:id="@+id/graphicsFragment"
+        android:name="com.example.modelingrobots.fragments.GraphicsFragment"
+        android:label="fragment_graphics"
+        tools:layout="@layout/fragment_graphics" />
 </navigation>

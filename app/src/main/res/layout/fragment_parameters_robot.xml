@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,207 +10,252 @@
 
     <ImageView
         android:id="@+id/imageRobot"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/robot_dekart" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/text_type_robots"
-            android:textSize="16sp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Spinner
-            android:id="@+id/spinner_robots"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:entries="@array/names_robots" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:id="@+id/tv_type_robots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/text_type_robots"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_title1"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_robots"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_image" />
+
+    <Spinner
+        android:id="@+id/spinner_robots"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:entries="@array/names_robots"
+        app:layout_constraintBottom_toTopOf="@+id/tv_title1"
+        app:layout_constraintEnd_toStartOf="@+id/btn_choose_robot"
+        app:layout_constraintStart_toEndOf="@+id/tv_type_robots"
+        app:layout_constraintTop_toBottomOf="@id/barrier_image" />
+
+
+    <Button
+        android:id="@+id/btn_choose_robot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner_robots"
+        app:layout_constraintTop_toTopOf="@id/barrier_image" />
+
+    <TextView
+        android:id="@+id/tv_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/links_lengths"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_type_robot" />
 
-    <LinearLayout
-        android:id="@+id/length_links"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_l1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_l1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/l1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_l2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_l2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/l2" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:id="@+id/tv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/moving_constraights"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_length" />
 
-    <LinearLayout
-        android:id="@+id/move_contstraints"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_type_robot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tv_type_robots,spinner_robots,btn_choose_robot" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_l1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/layout_input_l2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title1">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_q1min"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_length1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/l1" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_q1min"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/q1_min" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_l2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/layout_input_l1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title1">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/q1_limit"
-            android:textSize="16sp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_length2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/l2" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_q1max"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="layout_input_l1,layout_input_l2" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_q1max"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/q1_max" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="imageRobot" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_q1min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_q1limits"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title2">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_q2min"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_q1min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/q1_min" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_q2min"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/q2_min" />
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/q2_limit"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/tv_q1limits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="@string/q1_limit"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/barrier_constraights1"
+        app:layout_constraintEnd_toStartOf="@+id/layout_input_q1max"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/layout_input_q1min"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title2" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layout_input_q2max"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_q1max"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_q1limits"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title2">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_q2max"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/q2_max" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_q1max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/q1_max" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-    </LinearLayout>
-</LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_q2min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_q2limits"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier_constraights1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_q2min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/q2_min" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_q2limits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="@string/q2_limit"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/barrier_constraints2"
+        app:layout_constraintEnd_toStartOf="@+id/layout_input_q2max"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/layout_input_q2min"
+        app:layout_constraintTop_toBottomOf="@id/barrier_constraights1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_input_q2max"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_q2limits"
+        app:layout_constraintTop_toBottomOf="@id/barrier_constraights1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_q2max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/q2_max" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_constraights1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="layout_input_q1min,tv_q1limits,layout_input_q1max" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_constraints2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="layout_input_q2min,tv_q2limits,layout_input_q2max" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

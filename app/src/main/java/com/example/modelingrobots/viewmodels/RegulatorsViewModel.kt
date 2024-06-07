@@ -13,8 +13,8 @@ class RegulatorsViewModel() : ViewModel() {
     val kp2 = MutableLiveData<Double>(1.0)
     val ki2 = MutableLiveData<Double>(0.0)
     val kd2 = MutableLiveData<Double>(0.0)
-    lateinit var reg1: PID
-    lateinit var reg2: PID
+    var reg1: PID = PID(kp1.value!!, kd1.value!!, ki1.value!!)
+    var reg2: PID = PID(kp2.value!!, kd2.value!!, ki2.value!!)
 
     fun setValues(kp11: Double, kd11: Double, ki11: Double, kp22: Double, kd22: Double, ki22: Double) {
         kp1.value = kp11

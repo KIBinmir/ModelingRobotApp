@@ -5,23 +5,23 @@ public class RobotDekart extends Robot {
         super(l1, l2, q1min, q1max, q2min, q2max);
     }
     @Override
-    public double calcQ1() {
-        return y;
+    public double calcQ1(Double x1, Double y1) {
+        return y1;
     }
 
     @Override
-    public double calcQ2() {
-        return x;
+    public double calcQ2(Double x1, Double y1) {
+        return x1;
     }
 
     @Override
-    public double calcX() {
-        return q2;
+    public double calcX(Double q11, Double q22) {
+        return q22;
     }
 
     @Override
-    public double calcY() {
-        return q1;
+    public double calcY(Double q11, Double q22) {
+        return q11;
     }
 
     @Override

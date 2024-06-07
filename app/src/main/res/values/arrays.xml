@@ -25,8 +25,8 @@
         <item>Позиционное</item>
     </string-array>
 
-    <string-array name="type_coorsinates">
-        <item>Обобщённые</item>
+    <string-array name="type_coordinates">
         <item>Декартовые</item>
+        <item>Обобщённые</item>
     </string-array>
 </resources>

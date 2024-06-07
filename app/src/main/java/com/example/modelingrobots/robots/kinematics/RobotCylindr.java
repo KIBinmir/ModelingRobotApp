@@ -5,23 +5,23 @@ public class RobotCylindr extends Robot{
         super(l1, l2, q1min, q1max, q2min, q2max);
     }
     @Override
-    public double calcQ1() {
-        return Math.atan2(x, y);
+    public double calcQ1(Double x1, Double y1) {
+        return Math.atan2(x1, y1);
     }
 
     @Override
-    public double calcQ2() {
-        return Math.sqrt(x*x-y*y)-L1;
+    public double calcQ2(Double x1, Double y1) {
+        return Math.sqrt(x1*x1-y1*y1)-L1;
     }
 
     @Override
-    public double calcX() {
-        return (L1+q2)*Math.sin(q1);
+    public double calcX(Double q11, Double q22) {
+        return (L1+q22)*Math.sin(q11);
     }
 
     @Override
-    public double calcY() {
-        return (L1+q2)*Math.cos(q1);
+    public double calcY(Double q11, Double q22) {
+        return (L1+q22)*Math.cos(q11);
     }
 
     @Override

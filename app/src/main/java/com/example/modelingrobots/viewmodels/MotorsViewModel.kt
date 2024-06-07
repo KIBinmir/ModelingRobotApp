@@ -12,13 +12,13 @@ class MotorsViewModel : ViewModel() {
     val ke2 = MutableLiveData<Double>(1.0)
     val km1 = MutableLiveData<Double>(1.0)
     val km2 = MutableLiveData<Double>(1.0)
-    val j1 = MutableLiveData<Double>(0.000001)
-    val j2 = MutableLiveData<Double>(0.000001)
-    val l1 = MutableLiveData<Double>(1.001)
-    val l2 = MutableLiveData<Double>(1.001)
+    val j1 = MutableLiveData<Double>(0.01)
+    val j2 = MutableLiveData<Double>(0.01)
+    val l1 = MutableLiveData<Double>(0.01)
+    val l2 = MutableLiveData<Double>(0.01)
 
-    lateinit var motor1: Motor2Simple
-    lateinit var motor2: Motor2Simple
+    var motor1: Motor2Simple = Motor2Simple(j1.value!!, l1.value!!, r1.value!!, km1.value!!, ke1.value!!)
+    var motor2: Motor2Simple = Motor2Simple(j2.value!!, l2.value!!, r2.value!!, km2.value!!, ke2.value!!)
 
     fun setValues1(j11: Double, l11: Double, r11: Double, km11: Double, ke11: Double) {
         j1.value = j11

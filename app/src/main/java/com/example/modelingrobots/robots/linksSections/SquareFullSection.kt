@@ -1,6 +1,6 @@
 package com.example.modelingrobots.robots.linksSections
 
-open class SquareFullSection: InertionAndMassSection {
+open class SquareFullSection: Section() {
     override fun mass(material: Materials, l: Double, p1: Double, p2: Double, p3: Double): Double {
         return l*p1*p2*material.density
     }

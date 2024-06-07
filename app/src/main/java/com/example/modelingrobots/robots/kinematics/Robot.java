@@ -62,13 +62,13 @@ public abstract class Robot {
     }
 
     public void setQ1Max(double q1max) {
-        q1Max = q1Max;
+        q1Max = q1max;
     }
     public void setQ2Min(double q2min) {
         q2Min = q2min;
     }
     public void setQ2Max(double q2max) {
-        q2Max = q2Max;
+        q2Max = q2max;
     }
     public void correctLength() {
         L1 = L1 > maxL1 ? maxL1 : L1;
@@ -84,13 +84,13 @@ public abstract class Robot {
         q2 = q2 < q2Min ? q2Min : q2;
     }
 
-    public abstract double calcQ1();
+    public abstract double calcQ1(Double x1, Double y1);
 
-    public abstract double calcQ2();
+    public abstract double calcQ2(Double x1, Double y1);
 
-    public abstract double calcX();
+    public abstract double calcX(Double q11, Double q22);
 
-    public abstract double calcY();
+    public abstract double calcY(Double q11, Double q22);
 
     public abstract void correctQ1Q2Constraints();
 }

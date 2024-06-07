@@ -40,6 +40,7 @@
     <string name="q2_max"> q2_max </string>
     <string name="position_grab">Положение схвата</string>
     <string name="related_coordinates">Обобщённые координаты</string>
+    <string name="dekart_coordinates">Декартовые координаты</string>
     <string name="links_lengths">Длина звеньев</string>
     <string name="moving_constraights">Ограничения по перемещению</string>
     <string name="kp1">kp1</string>
