@@ -3,7 +3,19 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.modelingrobots.MainActivity">
     <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Открыть" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Сохранить" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Сохранить как" />
+    <item
         android:id="@+id/graphicsFragment"
         android:orderInCategory="100"
-        android:title="Grapics" />
+        android:title="Построить график" />
 </menu>

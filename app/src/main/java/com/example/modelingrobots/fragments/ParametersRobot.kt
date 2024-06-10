@@ -45,28 +45,14 @@ class ParametersRobot : Fragment() {
 
         binding.btnChooseRobot.setOnClickListener {
             typeR = spinR.selectedItem.toString()
-            Toast.makeText(requireContext().applicationContext, "Выбран робот $typeR", Toast.LENGTH_LONG).show()
-            when (typeR) {
-                types_robot[0] -> binding.imageRobot.setImageResource(R.drawable.robot_dekart)
-                types_robot[1] -> binding.imageRobot.setImageResource(R.drawable.robot_cylindr)
-                types_robot[2] -> binding.imageRobot.setImageResource(R.drawable.robot_koler)
-                types_robot[3] -> binding.imageRobot.setImageResource(R.drawable.robot_skara)
-                else -> binding.imageRobot.setImageResource(R.drawable.robot_dekart)
-            }
+            chooseRobot()
         }
 
 
         viewModel.typeRobot.observe(viewLifecycleOwner, Observer { newValue ->
             binding.spinnerRobots.setSelection(types_robot.indexOf(newValue))
             typeR = newValue
-            Toast.makeText(requireContext().applicationContext, "Выбран робот $typeR", Toast.LENGTH_LONG).show()
-            when (typeR) {
-                types_robot[0] -> binding.imageRobot.setImageResource(R.drawable.robot_dekart)
-                types_robot[1] -> binding.imageRobot.setImageResource(R.drawable.robot_cylindr)
-                types_robot[2] -> binding.imageRobot.setImageResource(R.drawable.robot_koler)
-                types_robot[3] -> binding.imageRobot.setImageResource(R.drawable.robot_skara)
-                else -> binding.imageRobot.setImageResource(R.drawable.robot_dekart)
-            }
+            chooseRobot()
         })
 
         viewModel.l1.observe(viewLifecycleOwner, Observer { newValue ->
@@ -92,7 +78,7 @@ class ParametersRobot : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        Toast.makeText(requireContext().applicationContext, "ok$typeR", Toast.LENGTH_LONG).show()
+        //Toast.makeText(requireContext().applicationContext, "ok$typeR", Toast.LENGTH_SHORT).show()
         val l11 = binding.etLength1.text.toString().toDouble()
         val l22 = binding.etLength1.text.toString().toDouble()
         val q1min1 = binding.etLength1.text.toString().toDouble()
@@ -100,5 +86,18 @@ class ParametersRobot : Fragment() {
         val q2min2 = binding.etLength1.text.toString().toDouble()
         val q2max2 = binding.etLength1.text.toString().toDouble()
         viewModel.setValues(typeR, l11, l22, q1min1, q1max1, q2min2, q2max2)
+    }
+
+    private fun chooseRobot() {
+        Toast.makeText(requireContext().applicationContext, "Выбран робот $typeR", Toast.LENGTH_SHORT).show()
+        binding.apply {
+            when (spinnerRobots.selectedItemPosition) {
+                0 -> imageRobot.setImageResource(R.drawable.robot_dekart)
+                1 -> imageRobot.setImageResource(R.drawable.robot_cylindr)
+                2 -> imageRobot.setImageResource(R.drawable.robot_koler)
+                3 -> imageRobot.setImageResource(R.drawable.robot_skara)
+                else -> imageRobot.setImageResource(R.drawable.robot_dekart)
+            }
+        }
     }
 }

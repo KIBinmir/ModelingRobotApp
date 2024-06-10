@@ -7,12 +7,12 @@ import com.example.modelingrobots.robots.otherParts.PID
 import com.google.android.material.snackbar.Snackbar
 
 class RegulatorsViewModel() : ViewModel() {
-    val kp1 = MutableLiveData<Double>(1.0)
+    val kp1 = MutableLiveData<Double>(0.00125)
     val ki1 = MutableLiveData<Double>(0.0)
-    val kd1 = MutableLiveData<Double>(0.0)
-    val kp2 = MutableLiveData<Double>(1.0)
+    val kd1 = MutableLiveData<Double>(0.1)
+    val kp2 = MutableLiveData<Double>(0.00125)
     val ki2 = MutableLiveData<Double>(0.0)
-    val kd2 = MutableLiveData<Double>(0.0)
+    val kd2 = MutableLiveData<Double>(0.1)
     var reg1: PID = PID(kp1.value!!, kd1.value!!, ki1.value!!)
     var reg2: PID = PID(kp2.value!!, kd2.value!!, ki2.value!!)
 

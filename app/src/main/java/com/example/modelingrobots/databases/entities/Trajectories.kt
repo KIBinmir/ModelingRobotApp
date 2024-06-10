@@ -10,15 +10,12 @@ data class Trajectories(
     var trajectory_id: Int,
     @ColumnInfo(name = "robot_id") var robotId: Int,
     @ColumnInfo(name = "type_moving") var typeMoving: String,
-    @ColumnInfo(name = "type_coordinates") var typeCoordinates: Boolean, //true - relate, false - absolute
+    @ColumnInfo(name = "type_coordinates") var typeCoordinates: String,
     @ColumnInfo(name = "velocity") var velocity: Double?,
-    @ColumnInfo(name = "point0") var point0: String,
-    @ColumnInfo(name = "point1") var point1: String,
-    @ColumnInfo(name = "point2") var point2: String,
-    @ColumnInfo(name = "point3") var point3: String,
-    @ColumnInfo(name = "point4") var point4: String,
-    @ColumnInfo(name = "point5") var point5: String,
-    @ColumnInfo(name = "point6") var point6: String,
-    @ColumnInfo(name = "point7") var point7: String,
-    @ColumnInfo(name = "point8") var point8: String
+    @ColumnInfo(name = "t0") var t0: Double,
+    @ColumnInfo(name = "p1(t0)") var p1_t0: Double,
+    @ColumnInfo(name = "p2(t0)") var p2_t0: Double,
+    @ColumnInfo(name = "t1") var t1: Double,
+    @ColumnInfo(name = "p1(t1)") var p1_t1: Double,
+    @ColumnInfo(name = "p2(t1)") var p2_t1: Double,
 )

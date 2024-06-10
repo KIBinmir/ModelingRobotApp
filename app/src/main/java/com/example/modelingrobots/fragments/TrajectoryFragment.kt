@@ -69,8 +69,8 @@ class TrajectoryFragment : Fragment() {
                 etQ1time0.setText(data[0].q1.toString())
                 etQ2time0.setText(data[0].q2.toString())
                 etTime1.setText(data[1].t.toString())
-                etQ1time1.setText(data[0].q1.toString())
-                etQ2time1.setText(data[0].q2.toString())
+                etQ1time1.setText(data[1].q1.toString())
+                etQ2time1.setText(data[1].q2.toString())
             }
         })
     }

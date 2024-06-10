@@ -48,7 +48,6 @@ class IncisionLinkFragment : Fragment() {
         val typeMaterials = resources.getStringArray(R.array.materials)
         val typeSections = resources.getStringArray(R.array.type_links)
         val map_materialsToNames = mapOf(Materials.Aluminum to typeMaterials[0], Materials.Steel to typeMaterials[1], Materials.Plastic to typeMaterials[2])
-        binding.etParam1.hint
 
         binding.btnChooseSection.setOnClickListener { 
             typeSctn = spin_section.selectedItem.toString()
@@ -103,40 +102,48 @@ class IncisionLinkFragment : Fragment() {
                 viewModel.setValues(typeSctn, typeMat, p11, p22, p33)
             }
         }
-
     }
 
     private fun setTypeLink() {
-        Toast.makeText(requireContext().applicationContext, "Выбрано $typeSctn сечение", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext().applicationContext, "Выбрано $typeSctn сечение", Toast.LENGTH_SHORT).show()
         binding.apply {
             when(spinnerSection.selectedItemPosition) {
                 0 -> {
                     imageSection.setImageResource(R.drawable.circle_full)
-                    etParam2.isFocusable = false
+                    tilParam2.visibility = View.INVISIBLE
+                    tilParam3.visibility = View.INVISIBLE
                     etParam2.isEnabled = false
                     etParam3.isEnabled = false
-                    etParam3.isEnabled = false
+                    tilParam1.hint = "Диаметр"
                 }
                 1 -> {
                     imageSection.setImageResource(R.drawable.think_circle_section)
-                    etParam2.isFocusable = true
+                    tilParam2.visibility = View.VISIBLE
+                    tilParam3.visibility = View.INVISIBLE
                     etParam2.isEnabled = true
                     etParam3.isEnabled = false
-                    etParam3.isEnabled = false
+                    tilParam1.hint = "Диаметр"
+                    tilParam2.hint = "Толщина"
+
                 }
                 2 -> {
                     imageSection.setImageResource(R.drawable.square)
-                    etParam2.isFocusable = true
+                    tilParam2.visibility = View.VISIBLE
+                    tilParam3.visibility = View.INVISIBLE
                     etParam2.isEnabled = true
                     etParam3.isEnabled = false
-                    etParam3.isEnabled = false
+                    tilParam1.hint = "Длина"
+                    tilParam2.hint = "Ширина"
                 }
                 3 -> {
                     imageSection.setImageResource(R.drawable.square_think)
-                    etParam2.isFocusable = true
+                    tilParam2.visibility = View.VISIBLE
+                    tilParam3.visibility = View.VISIBLE
                     etParam2.isEnabled = true
                     etParam3.isEnabled = true
-                    etParam3.isEnabled = true
+                    tilParam1.hint = "Длина"
+                    tilParam2.hint = "Ширина"
+                    tilParam3.hint = "Толщина"
                 }
             }
         }

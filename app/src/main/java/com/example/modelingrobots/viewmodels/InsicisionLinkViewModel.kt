@@ -13,7 +13,7 @@ import com.example.modelingrobots.robots.linksSections.SquareThinkSection
 class InsicisionLinkViewModel: ViewModel() {
     val typeLink = MutableLiveData<String>("Круглое сплошное")
     val materialLink = MutableLiveData<Materials>(Materials.Aluminum)
-    val p1 = MutableLiveData<Double>(0.05)
+    val p1 = MutableLiveData<Double>(3.50)
     val p2 = MutableLiveData<Double>(0.05)
     val p3 = MutableLiveData<Double>(0.05)
     var section: Section = when(typeLink.value) {

@@ -12,11 +12,11 @@ import com.example.modelingrobots.robots.kinematics.RobotSkara
 class ParametersRobotsViewModel: ViewModel() {
     val typeRobot = MutableLiveData<String>("Декарт")
     val l1 = MutableLiveData<Double>(1.0)
-    val l2 = MutableLiveData<Double>(1.0)
+    val l2 = MutableLiveData<Double>(0.5)
     val q1min = MutableLiveData<Double>(0.0)
     val q1max = MutableLiveData<Double>(1.0)
     val q2min = MutableLiveData<Double>(0.0)
-    val q2max = MutableLiveData<Double>(1.0)
+    val q2max = MutableLiveData<Double>(0.5)
     lateinit var robotConfig: Robot
 
     fun setValues(typeR: String, l11: Double, l22: Double, q1min1: Double, q1max1: Double, q2min2: Double, q2max2: Double) {

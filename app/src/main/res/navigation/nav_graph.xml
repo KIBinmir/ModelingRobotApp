@@ -7,31 +7,31 @@
     <fragment
         android:id="@+id/parametersRobot"
         android:name="com.example.modelingrobots.fragments.ParametersRobot"
-        android:label="fragment_parameters_robot"
+        android:label="Параметры робота"
         tools:layout="@layout/fragment_parameters_robot" />
     <fragment
         android:id="@+id/incisionLinkFragment"
         android:name="com.example.modelingrobots.fragments.IncisionLinkFragment"
-        android:label="fragment_incision_link"
+        android:label="Параметры сечения звеньев"
         tools:layout="@layout/fragment_incision_link" />
     <fragment
         android:id="@+id/motorsFragment"
         android:name="com.example.modelingrobots.fragments.MotorsFragment"
-        android:label="fragment_motors"
+        android:label="Параметры двигателей"
         tools:layout="@layout/fragment_motors" />
     <fragment
         android:id="@+id/regulatorsFragment"
         android:name="com.example.modelingrobots.fragments.RegulatorsFragment"
-        android:label="fragment_regulators"
+        android:label="Параметры регуляторов"
         tools:layout="@layout/fragment_regulators" />
     <fragment
         android:id="@+id/trajectoryFragment"
         android:name="com.example.modelingrobots.fragments.TrajectoryFragment"
-        android:label="fragment_trajectory"
+        android:label="Параметры движения"
         tools:layout="@layout/fragment_trajectory" />
     <fragment
         android:id="@+id/graphicsFragment"
         android:name="com.example.modelingrobots.fragments.GraphicsFragment"
-        android:label="fragment_graphics"
+        android:label="Графики"
         tools:layout="@layout/fragment_graphics" />
 </navigation>

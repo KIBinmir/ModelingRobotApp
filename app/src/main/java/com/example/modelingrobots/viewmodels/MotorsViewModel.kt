@@ -6,16 +6,16 @@ import com.example.modelingrobots.robots.otherParts.Motor2Simple
 import com.example.modelingrobots.robots.otherParts.PID
 
 class MotorsViewModel : ViewModel() {
-    val r1 = MutableLiveData<Double>(1.0)
-    val r2 = MutableLiveData<Double>(1.0)
+    val r1 = MutableLiveData<Double>(4.0)
+    val r2 = MutableLiveData<Double>(4.0)
     val ke1 = MutableLiveData<Double>(1.0)
     val ke2 = MutableLiveData<Double>(1.0)
     val km1 = MutableLiveData<Double>(1.0)
     val km2 = MutableLiveData<Double>(1.0)
-    val j1 = MutableLiveData<Double>(0.01)
-    val j2 = MutableLiveData<Double>(0.01)
-    val l1 = MutableLiveData<Double>(0.01)
-    val l2 = MutableLiveData<Double>(0.01)
+    val j1 = MutableLiveData<Double>(0.3)
+    val j2 = MutableLiveData<Double>(0.3)
+    val l1 = MutableLiveData<Double>(0.04)
+    val l2 = MutableLiveData<Double>(0.04)
 
     var motor1: Motor2Simple = Motor2Simple(j1.value!!, l1.value!!, r1.value!!, km1.value!!, ke1.value!!)
     var motor2: Motor2Simple = Motor2Simple(j2.value!!, l2.value!!, r2.value!!, km2.value!!, ke2.value!!)
