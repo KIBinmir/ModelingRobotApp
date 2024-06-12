@@ -1,8 +1,10 @@
 package com.example.modelingrobots.databases
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
+import androidx.room.Update
 import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndMotors
 import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndRegulators
 import com.example.modelingrobots.databases.dataclasses.DataRobotsConfigurationAndSectionLinks
@@ -32,7 +34,45 @@ interface RobotsDao {
     @Query("SELECT * FROM trajectories ORDER BY :order")
     fun getAllTrajectories(order:String): List<Trajectories>
 
-    @Query("SELECT robot_id FROM configurationsrobots WHERE name_configuration = :nameConfiguration")
+    @Update
+    fun updateRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
+    @Update
+    fun updateIncisionLink(vararg incisionLink: SectionLinks)
+    @Update
+    fun updateRegulators(vararg regulators: Regulators)
+    @Update
+    fun updateMotors(vararg motors: Motors)
+    @Update
+    fun updateTrajectory(vararg trajectories: Trajectories)
+
+    @Insert
+    fun insertRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
+    @Insert
+    fun insertIncisionLink(vararg incisionLink: SectionLinks)
+    @Insert
+    fun insertRegulators(vararg regulators: Regulators)
+    @Insert
+    fun insertMotors(vararg motors: Motors)
+    @Insert
+    fun insertTrajectory(vararg trajectories: Trajectories)
+
+    @Query("SELECT configuraionName FROM configurationsrobots ORDER BY configuraionName ASC")
+    fun getNamesConfigurationsRobots(): List<String>
+    /*@Query("SELECT configuraionName FROM configurationsrobots WHERE configuraionName = :nameConfiguration")
+    fun getRobotConfigurationIdByName(nameConfiguration: String): String*/
+    @Query("SELECT * FROM configurationsrobots WHERE configuraionName = :filename")
+    fun getRobotsConfiguration(filename: String): List<ConfigurationsRobots>
+    @Query("SELECT * FROM sectionlinks WHERE configuraionName = :filename")
+    fun getSectionLink(filename: String): List<SectionLinks>
+    @Query("SELECT * FROM regulators WHERE configuraionName = :filename")
+    fun getRegulators(filename: String): List<Regulators>
+    @Query("SELECT * FROM motors WHERE configuraionName = :filename")
+    fun getMotors(filename: String): List<Motors>
+    @Query("SELECT * FROM trajectories WHERE configuraionName = :filename")
+    fun getTrajectory(filename: String): List<Trajectories>
+
+
+    /*@Query("SELECT robot_id FROM configurationsrobots WHERE name_configuration = :nameConfiguration")
     fun getRobotConfigurationIdByName(nameConfiguration: String): Int
     @Query("SELECT * FROM configurationsrobots WHERE robot_id = :robot_id")
     fun getRobotsConfigurationById(robot_id: Int): List<ConfigurationsRobots>
@@ -43,10 +83,7 @@ interface RobotsDao {
     @Query("SELECT * FROM motors WHERE robot_id = :robot_id")
     fun getMotorById(robot_id: Int): List<Motors>
     @Query("SELECT * FROM trajectories WHERE robot_id = :robot_id")
-    fun getTrajectoryById(robot_id: Int): List<Trajectories>
-
-    @Query("SELECT name_configuration FROM configurationsrobots ORDER BY name_configuration ASC")
-    fun getNamesConfigurationsRobots(): List<String>
+    fun getTrajectoryById(robot_id: Int): List<Trajectories>*/
 
     /*@Transaction
     @Query("SELECT user_id, robot_id FROM configurationsrobots")

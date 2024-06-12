@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Motors")
 data class Motors(
-    @PrimaryKey(autoGenerate = true)
-    var motors_id: Int,
-    @ColumnInfo(name = "robot_id") var robotId: Int,
+    //@PrimaryKey(autoGenerate = true)
+    //var motors_id: Int,
+    //@ColumnInfo(name = "robot_id") var robotId: Int,
+    var configuraionName: String,
     @ColumnInfo(name = "j1") var j1: Double,
     @ColumnInfo(name = "l1") var l1: Double,
     @ColumnInfo(name = "r1") var r1: Double,

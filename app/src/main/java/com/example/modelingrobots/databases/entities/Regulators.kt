@@ -6,9 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Regulators")
 data class Regulators(
-    @PrimaryKey(autoGenerate = true)
-    var regulators_id: Int,
-    @ColumnInfo(name = "robot_id") var robotId: Int,
+    //@PrimaryKey(autoGenerate = true)
+    //var regulators_id: Int,
+    //@ColumnInfo(name = "robot_id") var robotId: Int,
+    @PrimaryKey
+    var configuraionName: String,
     @ColumnInfo(name = "kp1") var kp1: Double,
     @ColumnInfo(name = "ki1") var ki1: Double,
     @ColumnInfo(name = "kd1") var kd1: Double,
