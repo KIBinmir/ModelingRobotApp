@@ -2,6 +2,8 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.modelingrobots.databases.entities.ConfigurationsRobots
+import com.example.modelingrobots.databases.entities.Motors
 import com.example.modelingrobots.robots.otherParts.Motor2Simple
 import com.example.modelingrobots.robots.otherParts.PID
 
@@ -36,5 +38,18 @@ class MotorsViewModel : ViewModel() {
         km2.value = km22
         ke2.value = ke22
         motor2 = Motor2Simple(j22, l22, r22, km22, ke22)
+    }
+    fun getData(fileName: String): Motors {
+        return Motors(configuraionName = fileName,
+            j1 = j1.value!!,
+            j2 = j2.value!!,
+            l1 = l1.value!!,
+            l2 = l2.value!!,
+            r1 = r1.value!!,
+            r2 = r2.value!!,
+            km1 = km1.value!!,
+            km2 = km2.value!!,
+            ke1 = ke1.value!!,
+            ke2 = ke2.value!!)
     }
 }

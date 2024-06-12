@@ -2,6 +2,7 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.modelingrobots.databases.entities.SectionLinks
 import com.example.modelingrobots.robots.linksSections.CircleFullSection
 import com.example.modelingrobots.robots.linksSections.CircleThinkSection
 import com.example.modelingrobots.robots.linksSections.InertionAndMassSection
@@ -42,5 +43,13 @@ class InsicisionLinkViewModel: ViewModel() {
     fun getMassInertion(l:Double): List<Double> {
         return listOf<Double>(section.mass(materialLink.value!!,l,p1.value!!, p2.value!!, p3.value!!),
             section.inertionc(materialLink.value!!,l,p1.value!!, p2.value!!, p3.value!!))
+    }
+    fun getData(filename: String): SectionLinks {
+        return SectionLinks(configuraionName = filename,
+            typeSection = typeLink.value!!,
+            material = materialLink.value!!.nameMaterial,
+            param1 = p1.value!!,
+            param2 = p2.value,
+            param3 = p3.value)
     }
 }

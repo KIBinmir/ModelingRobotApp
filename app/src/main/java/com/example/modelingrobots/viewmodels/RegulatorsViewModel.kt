@@ -3,6 +3,7 @@ package com.example.modelingrobots.viewmodels
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.modelingrobots.databases.entities.Regulators
 import com.example.modelingrobots.robots.otherParts.PID
 import com.google.android.material.snackbar.Snackbar
 
@@ -25,5 +26,14 @@ class RegulatorsViewModel() : ViewModel() {
         ki2.value = ki22
         reg1 = PID(kp11, kd11, ki11)
         reg2 = PID(kp22, kd22, ki22)
+    }
+    fun getData(filename: String): Regulators {
+        return Regulators(configuraionName = filename,
+            kp1 = kp1.value!!,
+            kd1 = kd1.value!!,
+            ki1 = ki1.value!!,
+            kp2 = kp2.value!!,
+            kd2 = kd2.value!!,
+            ki2 = ki2.value!!)
     }
 }

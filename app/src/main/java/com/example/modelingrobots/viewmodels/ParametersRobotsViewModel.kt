@@ -2,6 +2,7 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.modelingrobots.databases.entities.ConfigurationsRobots
 import com.example.modelingrobots.robots.dynamics.DynamicRobot
 import com.example.modelingrobots.robots.kinematics.Robot
 import com.example.modelingrobots.robots.kinematics.RobotCylindr
@@ -34,5 +35,15 @@ class ParametersRobotsViewModel: ViewModel() {
             "Скара" -> robotConfig = RobotSkara(l11, l22, q1min1, q1max1, q2min2, q2max2)
         }
     }
-
+    fun getData(fileName: String): ConfigurationsRobots {
+        return ConfigurationsRobots(configuraionName = fileName,
+            robot = typeRobot.value!!,
+            userId = 0,
+            l1 = l1.value!!,
+            l2 = l2.value!!,
+            q1Max = q1max.value!!,
+            q1Min = q1min.value!!,
+            q2Min = q2min.value!!,
+            q2Max = q2max.value!!)
+    }
 }
