@@ -57,9 +57,12 @@ class TrajectoryFragment : Fragment() {
             typeCoord = newValue
             if (typeCoord == typesCoordinates[0]) {
                 changeOnDekart()
+                binding.radioDekart.isChecked = true
+
             }
             else {
                 changeOnRelate()
+                binding.radioRelate.isChecked = true
             }
         })
         viewModel.timeTable.observe(viewLifecycleOwner, Observer { newValue ->
@@ -89,18 +92,18 @@ class TrajectoryFragment : Fragment() {
     }
     private fun changeOnDekart() {
         binding.apply {
-            etQ1time0.hint = "x(t0)"
-            etQ2time0.hint = "y(t0)"
-            etQ1time1.hint = "x(t1)"
-            etQ1time1.hint = "y(t1)"
+            tilQ1time0.hint = "x(t0)"
+            tilQ2time0.hint = "y(t0)"
+            tilQ1time1.hint = "x(t1)"
+            tilQ2time1.hint = "y(t1)"
         }
     }
     private fun changeOnRelate() {
         binding.apply {
-            etQ1time0.hint = "q1(t0)"
-            etQ2time0.hint = "q2(t0)"
-            etQ1time1.hint = "q1(t1)"
-            etQ1time1.hint = "q2(t1)"
+            tilQ1time0.hint = "q1(t0)"
+            tilQ2time0.hint = "q2(t0)"
+            tilQ1time1.hint = "q1(t1)"
+            tilQ2time1.hint = "q2(t1)"
         }
     }
 }
