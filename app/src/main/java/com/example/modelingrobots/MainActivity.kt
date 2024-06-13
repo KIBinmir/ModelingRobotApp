@@ -1,8 +1,5 @@
 package com.example.modelingrobots
 
-import android.app.Dialog
-import android.content.DialogInterface
-import android.net.wifi.p2p.WifiP2pManager.ActionListener
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -13,12 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.modelingrobots.databases.RobotsDatabase
 import com.example.modelingrobots.databinding.ActivityMainBinding
 import com.example.modelingrobots.robots.linksSections.Materials
@@ -28,11 +22,8 @@ import com.example.modelingrobots.viewmodels.ParametersRobotsViewModel
 import com.example.modelingrobots.viewmodels.RegulatorsViewModel
 import com.example.modelingrobots.viewmodels.TrajectoryParametersViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private val regulatorsViewModel: RegulatorsViewModel by viewModels()
     private val motorsViewModel: MotorsViewModel by viewModels()
     private val trajectoryParametersViewModel: TrajectoryParametersViewModel by viewModels()
-    private var chooseConfigurationName: String? = null
+    private var chooseConfigurationName: String? = "My_robots_config"
     val database by lazy {
         Room.databaseBuilder(
             this,
@@ -79,32 +70,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         return when (item.itemId) {
             R.id.graphicsFragment -> NavigationUI.onNavDestinationSelected(item, navController = findNavController(R.id.nav_host_fragment_content_main))
-            R.id.save_file -> {
-                val array: Array<String> = arrayOf("")
-                if (chooseConfigurationName == null) {
+            R.id.save_config -> {
+
+                /*if (chooseConfigurationName == null) {
+                    //val array = getNames()
+                    val array = arrayOf("fydfuy")
                     showSaveConfigurationDialog(array)
                 }
                 else {
-                    updateData()
-                }
-
+                    Thread{
+                        updateData()
+                    }.start()
+                }*/
                 true
             }
-            R.id.save_as_file -> {
-                val array: Array<String> = arrayOf("")
-                showSaveConfigurationDialog(array)
+            R.id.clear_config -> {
+                /*val array = getNames()
+                showSaveConfigurationDialog(array)*/
                 true
             }
-            R.id.open_file -> {
-                val array: Array<String> = arrayOf("")
+            /*R.id.open_file -> {
+                val array = getNames()
                 showOpenConfigurationDialog(array)
                 true
-            }
+            }*/
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -114,11 +106,11 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
-    inner class SaveConfigurationDialog(val namesFiles: Array<String>): DialogFragment() {
+    /*inner class SaveConfigurationDialog(val namesFiles: Array<String>): DialogFragment() {
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             return activity?.let {
                 val builder = AlertDialog.Builder(it)
-                val inflater = requireActivity().layoutInflater
+                /*val inflater = requireActivity().layoutInflater
                 val bindDialog = inflater.inflate(R.layout.save_configuration_fragment, null)
                 val fileName = bindDialog.findViewById<TextInputEditText>(R.id.et_savefile)
                 val field = bindDialog.findViewById<TextInputLayout>(R.id.til_savefile)
@@ -130,12 +122,13 @@ class MainActivity : AppCompatActivity() {
                             else -> ""
                         }
                     }
-                }
+                }*/
                 builder.setTitle("Сохранение конфигурации")
-                    .setView(bindDialog)
+                    //.setView(bindDialog)
                     .setPositiveButton("Сохранить", DialogInterface.OnClickListener { dialog, which ->
-                        if (fileName.text.toString() != "") {
-                            chooseConfigurationName = fileName.text.toString()
+                        dialog.cancel()})/*
+                        if ("fileName.text.toString()" != "") {
+                            chooseConfigurationName = "fileName.text.toString()"
                             if (chooseConfigurationName in namesFiles) {
                                 AlertDialog.Builder(requireContext())
                                     .setTitle("Перезапись файла")
@@ -150,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                                 insertData()
                             }
                         }
-                    })
+                    })*/
                     .setNegativeButton("Отмена", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
                 builder.create()
             } ?: throw IllegalStateException("Activity cannot be null")
@@ -177,9 +170,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun showOpenConfigurationDialog(array: Array<String>) {
         OpenConfigurationDialog(array).show(supportFragmentManager, "Open Configuration")
-    }
+    }*/
     private fun insertData() {
-        GlobalScope.launch {
+        Thread {
             database.robotsDao.apply {
                 insertRobotConfiguration(parametersRobotViewModel.getData(chooseConfigurationName!!))
                 insertMotors(motorsViewModel.getData(chooseConfigurationName!!))
@@ -187,10 +180,10 @@ class MainActivity : AppCompatActivity() {
                 insertIncisionLink(insicisionLinkViewModel.getData(chooseConfigurationName!!))
                 insertTrajectory(trajectoryParametersViewModel.getData(chooseConfigurationName!!))
             }
-        }
+        }.start()
     }
     private fun updateData() {
-        GlobalScope.launch {
+        Thread {
             database.robotsDao.apply {
                 updateRobotConfiguration(parametersRobotViewModel.getData(chooseConfigurationName!!))
                 updateMotors(motorsViewModel.getData(chooseConfigurationName!!))
@@ -198,8 +191,11 @@ class MainActivity : AppCompatActivity() {
                 updateIncisionLink(insicisionLinkViewModel.getData(chooseConfigurationName!!))
                 updateTrajectory(trajectoryParametersViewModel.getData(chooseConfigurationName!!))
             }
-        }
+        }.start()
     }
+    /*fun getNames():  Array<String>{
+        return database.robotsDao.getNamesConfigurationsRobots().asLiveData().value!!
+    }*/
     private fun getData() {
         GlobalScope.launch {
             val parametersConfiguration = database.robotsDao.getRobotsConfiguration(chooseConfigurationName!!)[0]
