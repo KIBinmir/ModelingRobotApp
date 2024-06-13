@@ -3,20 +3,15 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.modelingrobots.MainActivity">
     <item
-        android:id="@+id/open_file"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Открыть" />
-    <item
-        android:id="@+id/save_file"
+        android:id="@+id/save_config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="Сохранить" />
     <item
-        android:id="@+id/save_as_file"
+        android:id="@+id/clear_config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Сохранить как" />
+        android:title="Очистить настройки" />
     <item
         android:id="@+id/graphicsFragment"
         android:orderInCategory="100"
