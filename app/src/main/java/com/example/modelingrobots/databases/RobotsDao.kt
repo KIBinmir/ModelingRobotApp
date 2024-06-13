@@ -20,6 +20,7 @@ import com.example.modelingrobots.databases.relations.ConfigurationRobotsAndRegu
 import com.example.modelingrobots.databases.relations.ConfigurationRobotsAndSectionLinks
 import com.example.modelingrobots.databases.relations.ConfigurationRobotsAndTrajectory
 import com.example.modelingrobots.databases.relations.UsersAndConfigurationRobots
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RobotsDao {
@@ -56,8 +57,8 @@ interface RobotsDao {
     @Insert
     fun insertTrajectory(vararg trajectories: Trajectories)
 
-    @Query("SELECT configuraionName FROM configurationsrobots ORDER BY configuraionName ASC")
-    fun getNamesConfigurationsRobots(): List<String>
+    /*@Query("SELECT configuraionName FROM configurationsrobots ORDER BY configuraionName ASC")
+    fun getNamesConfigurationsRobots(): Flow<Array<String>>*/
     /*@Query("SELECT configuraionName FROM configurationsrobots WHERE configuraionName = :nameConfiguration")
     fun getRobotConfigurationIdByName(nameConfiguration: String): String*/
     @Query("SELECT * FROM configurationsrobots WHERE configuraionName = :filename")
