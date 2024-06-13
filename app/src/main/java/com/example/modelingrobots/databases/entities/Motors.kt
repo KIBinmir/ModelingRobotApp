@@ -9,6 +9,7 @@ data class Motors(
     //@PrimaryKey(autoGenerate = true)
     //var motors_id: Int,
     //@ColumnInfo(name = "robot_id") var robotId: Int,
+    @PrimaryKey
     var configuraionName: String,
     @ColumnInfo(name = "j1") var j1: Double,
     @ColumnInfo(name = "l1") var l1: Double,
