@@ -2,6 +2,7 @@ package com.example.modelingrobots.databases
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
@@ -36,26 +37,26 @@ interface RobotsDao {
     fun getAllTrajectories(order:String): List<Trajectories>
 
     @Update
-    fun updateRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
+    suspend fun updateRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
     @Update
-    fun updateIncisionLink(vararg incisionLink: SectionLinks)
+    suspend fun updateIncisionLink(vararg incisionLink: SectionLinks)
     @Update
-    fun updateRegulators(vararg regulators: Regulators)
+    suspend fun updateRegulators(vararg regulators: Regulators)
     @Update
-    fun updateMotors(vararg motors: Motors)
+    suspend fun updateMotors(vararg motors: Motors)
     @Update
-    fun updateTrajectory(vararg trajectories: Trajectories)
+    suspend fun updateTrajectory(vararg trajectories: Trajectories)
 
-    @Insert
-    fun insertRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
-    @Insert
-    fun insertIncisionLink(vararg incisionLink: SectionLinks)
-    @Insert
-    fun insertRegulators(vararg regulators: Regulators)
-    @Insert
-    fun insertMotors(vararg motors: Motors)
-    @Insert
-    fun insertTrajectory(vararg trajectories: Trajectories)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRobotConfiguration(vararg configurationsRobots: ConfigurationsRobots)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertIncisionLink(vararg incisionLink: SectionLinks)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRegulators(vararg regulators: Regulators)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertMotors(vararg motors: Motors)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTrajectory(vararg trajectories: Trajectories)
 
     /*@Query("SELECT configuraionName FROM configurationsrobots ORDER BY configuraionName ASC")
     fun getNamesConfigurationsRobots(): Flow<Array<String>>*/

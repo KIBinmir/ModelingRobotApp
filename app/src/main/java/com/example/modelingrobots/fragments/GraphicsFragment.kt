@@ -103,31 +103,32 @@ class GraphicsFragment : Fragment() {
         val seriesData: MutableList<DataEntry> = ArrayList()
 
         if (typeTraj == typesCoordinate[0]) {
-            system.setStartXY(data[0].q1,data[0].q2)
+            system.setStartXY(data[0].q1,data[0].q2, data[0].t)
             while(system.t < data[1].t) {
-                var el = system.simXY(data[1].q1, data[1].q2)
+                var el = system.simXY(data[1].q1, data[1].q2, dt=0.001)
                 var x = configRobot.calcX(system.q1, system.q2)
                 var y = configRobot.calcY(system.q1, system.q2)
-                if ( !system.isStableProcess()) {
+                /*if ( !system.isStableProcess()) {
                     Toast.makeText(requireContext().applicationContext, "Не стабильный процес", Toast.LENGTH_LONG).show()
                     break
-                }
+                }*/
                 seriesData.add(CustomDataEntry(system.t.toString(), system.q1, system.q2, x, y))
             }
         }
         else {
-            system.setStart(data[0].q1,data[0].q2)
+            system.setStart(data[0].q1,data[0].q2, data[0].t)
             while(system.t < data[1].t) {
-                var el = system.sim(data[1].q1, data[1].q2)
+                var el = system.sim(data[1].q1, data[1].q2, 0.001)
                 var x = configRobot.calcX(system.q1, system.q2)
                 var y = configRobot.calcY(system.q1, system.q2)
-                if ( !system.isStableProcess()) {
+                /*if ( !system.isStableProcess()) {
                     Toast.makeText(requireContext().applicationContext, "Не стабильный процес", Toast.LENGTH_LONG).show()
                     break
-                }
+                }*/
                 seriesData.add(CustomDataEntry(system.t.toString(), system.q1, system.q2, x, y))
             }
         }
+        Toast.makeText(requireContext(), "t = ${system.t}, q1 = ${system.q1}, q2 = ${system.q2}", Toast.LENGTH_LONG).show()
 
         val set = Set.instantiate()
         set.data(seriesData)
@@ -186,7 +187,7 @@ class GraphicsFragment : Fragment() {
             padding(0.0, 0.0, 10.0, 0.0)
         }
 
-        val series4: Line = cartesian.line(series3Mapping)
+        val series4: Line = cartesian.line(series4Mapping)
         series4.apply {
             name("y")
             hovered().markers().enabled(true)
@@ -223,7 +224,4 @@ class GraphicsFragment : Fragment() {
         }
     }
 
-    private fun setGraphic(cartesian: Cartesian, numberSerias: Int, seriasMapping: Mapping, name: String) {
-        TODO()
-    }
 }

@@ -19,7 +19,7 @@ import com.example.modelingrobots.databases.entities.Trajectories
         Trajectories::class
     ],
     version = 1,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class RobotsDatabase: RoomDatabase() {
     abstract val robotsDao: RobotsDao

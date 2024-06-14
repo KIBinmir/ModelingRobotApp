@@ -80,11 +80,11 @@ class ParametersRobot : Fragment() {
         super.onPause()
         //Toast.makeText(requireContext().applicationContext, "ok$typeR", Toast.LENGTH_SHORT).show()
         val l11 = binding.etLength1.text.toString().toDouble()
-        val l22 = binding.etLength1.text.toString().toDouble()
-        val q1min1 = binding.etLength1.text.toString().toDouble()
-        val q1max1 = binding.etLength1.text.toString().toDouble()
-        val q2min2 = binding.etLength1.text.toString().toDouble()
-        val q2max2 = binding.etLength1.text.toString().toDouble()
+        val l22 = binding.etLength2.text.toString().toDouble()
+        val q1min1 = binding.etQ1min.text.toString().toDouble()
+        val q1max1 = binding.etQ1max.text.toString().toDouble()
+        val q2min2 = binding.etQ2min.text.toString().toDouble()
+        val q2max2 = binding.etQ2max.text.toString().toDouble()
         viewModel.setValues(typeR, l11, l22, q1min1, q1max1, q2min2, q2max2)
     }
 

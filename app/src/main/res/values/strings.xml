@@ -30,8 +30,8 @@
     <string name="text_switch">Отобразить траекторию робота</string>
     <string name="x">x:</string>
     <string name="y">y:</string>
-    <string name="l1">L1</string>
-    <string name="l2">L2</string>
+    <string name="l1">Длина L1</string>
+    <string name="l2">Длина L2</string>
     <string name="q1_limit"> &lt; q1 &lt; </string>
     <string name="q2_limit"> &lt; q2 &lt; </string>
     <string name="q1_min"> q1_min </string>

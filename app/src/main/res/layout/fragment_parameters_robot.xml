@@ -22,11 +22,10 @@
         android:id="@+id/tv_type_robots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/text_type_robots"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_title1"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_robots"
         app:layout_constraintEnd_toStartOf="@+id/spinner_robots"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +35,7 @@
         android:id="@+id/spinner_robots"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
         android:entries="@array/names_robots"
-        app:layout_constraintBottom_toTopOf="@+id/tv_title1"
         app:layout_constraintEnd_toStartOf="@+id/btn_choose_robot"
         app:layout_constraintStart_toEndOf="@+id/tv_type_robots"
         app:layout_constraintTop_toBottomOf="@id/barrier_image" />
@@ -53,30 +50,6 @@
         app:layout_constraintStart_toEndOf="@+id/spinner_robots"
         app:layout_constraintTop_toTopOf="@id/barrier_image" />
 
-    <TextView
-        android:id="@+id/tv_title1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/links_lengths"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_type_robot" />
-
-
-    <TextView
-        android:id="@+id/tv_title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/moving_constraights"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_length" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_type_robot"
@@ -90,12 +63,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
         app:layout_constraintEnd_toStartOf="@+id/layout_input_l2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title1">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_robots">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_length1"
@@ -108,13 +81,13 @@
         android:id="@+id/layout_input_l2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/layout_input_l1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title1">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_robots">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_length2"
@@ -147,7 +120,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_q1limits"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title2">
+        app:layout_constraintTop_toBottomOf="@+id/layout_input_l1">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_q1min"
@@ -171,7 +144,7 @@
         app:layout_constraintEnd_toStartOf="@+id/layout_input_q1max"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/layout_input_q1min"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title2" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_length" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_input_q1max"
@@ -182,7 +155,7 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_q1limits"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title2">
+        app:layout_constraintTop_toBottomOf="@+id/layout_input_l2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_q1max"

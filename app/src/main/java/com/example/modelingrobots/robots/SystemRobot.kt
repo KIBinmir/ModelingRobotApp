@@ -21,20 +21,26 @@ class SystemRobot(val robot: Robot, val robotDynamics: DynamicRobot, val reg1: P
         q1 = qlst[0]
         q2 = qlst[1]
         t += dt
+        q1 = maxOf(robot.q1Min, q1)
+        q1 = minOf(robot.q1Max, q1)
+        q2 = maxOf(robot.q2Min, q2)
+        q2 = minOf(robot.q2Max, q2)
         return listOf(t, q1, q2)
     }
     fun simXY(xz: Double, yz: Double, dt: Double =0.01): List<Double> {
         val q1z = robot.calcQ1(xz,yz)
         val q2z = robot.calcQ2(xz, yz)
-        return sim(q1z, yz, dt)
+        return sim(q1z, q2z, dt)
     }
-    fun setStart(q1z: Double, q2z: Double) {
+    fun setStart(q1z: Double, q2z: Double, t0: Double) {
         q1 = q1z
         q2 = q2z
+        t = t0
     }
-    fun setStartXY(xz: Double, yz: Double) {
+    fun setStartXY(xz: Double, yz: Double, t0: Double) {
         q1 = robot.calcQ1(xz, yz)
         q2 = robot.calcQ2(xz, yz)
+        t = t0
     }
     fun isStableProcess() = (Math.abs(q1) < maxQ) or (Math.abs(q2) < maxQ)
 }

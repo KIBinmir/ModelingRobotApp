@@ -2,8 +2,12 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.modelingrobots.ItemTimeTable
+import com.example.modelingrobots.databases.RobotsDao
+import com.example.modelingrobots.databases.entities.ConfigurationsRobots
 import com.example.modelingrobots.databases.entities.Trajectories
+import kotlinx.coroutines.launch
 
 class TrajectoryParametersViewModel: ViewModel() {
     val typeCoordinates = MutableLiveData<String>("Декартовые") // Для дискретной траектории
@@ -26,5 +30,24 @@ class TrajectoryParametersViewModel: ViewModel() {
             t1 = lst[1].t,
             p1_t1 = lst[1].q1,
             p2_t1 = lst[1].q2)
+    }
+    fun updateViewModelFromDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            var trajectories = dao.getTrajectory(filename)[0]
+            trajectories.apply {setValues(typeCoordinates, listOf(ItemTimeTable(t0, p1_t0, p2_t0), ItemTimeTable(t1, p1_t1, p2_t1)))}
+        }
+    }
+    fun insertViewDataInDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            dao.insertTrajectory(getData(filename))
+        }
+    }
+    fun updateDatabaseFromViewModel(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            dao.updateTrajectory(getData(filename))
+        }
+    }
+    fun setDefaultValue() {
+        setValues("Обобщённые", listOf(ItemTimeTable(0.0, 0.0, 0.0), ItemTimeTable(10.0, 1.0, 1.0)) )
     }
 }

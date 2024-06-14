@@ -2,13 +2,19 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.modelingrobots.ItemTimeTable
+import com.example.modelingrobots.databases.RobotsDao
 import com.example.modelingrobots.databases.entities.ConfigurationsRobots
+import com.example.modelingrobots.databases.entities.SectionLinks
 import com.example.modelingrobots.robots.dynamics.DynamicRobot
 import com.example.modelingrobots.robots.kinematics.Robot
 import com.example.modelingrobots.robots.kinematics.RobotCylindr
 import com.example.modelingrobots.robots.kinematics.RobotDekart
 import com.example.modelingrobots.robots.kinematics.RobotKoler
 import com.example.modelingrobots.robots.kinematics.RobotSkara
+import com.example.modelingrobots.robots.linksSections.Materials
+import kotlinx.coroutines.launch
 
 class ParametersRobotsViewModel: ViewModel() {
     val typeRobot = MutableLiveData<String>("Декарт")
@@ -45,5 +51,25 @@ class ParametersRobotsViewModel: ViewModel() {
             q1Min = q1min.value!!,
             q2Min = q2min.value!!,
             q2Max = q2max.value!!)
+    }
+    fun updateViewModelFromDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            var configurationsRobots = dao.getRobotsConfiguration(filename)[0]
+            configurationsRobots.apply {setValues(robot, l1, l2, q1Min, q1Max, q2Min,q2Max)}
+        }
+    }
+    fun insertViewDataInDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            dao.insertRobotConfiguration(getData(filename))
+        }
+    }
+    fun updateDatabaseFromViewModel(dao: RobotsDao, filename: String) {
+        val configurationsRobots = getData(filename)
+        viewModelScope.launch {
+            dao.updateRobotConfiguration(configurationsRobots)
+        }
+    }
+    fun setDefaultValue() {
+        setValues("Декарт", 1.0, 1.0, 0.0, 1.0, 0.0, 1.0 )
     }
 }

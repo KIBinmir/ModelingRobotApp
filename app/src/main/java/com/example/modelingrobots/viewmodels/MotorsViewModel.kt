@@ -2,10 +2,14 @@ package com.example.modelingrobots.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.modelingrobots.databases.RobotsDao
 import com.example.modelingrobots.databases.entities.ConfigurationsRobots
 import com.example.modelingrobots.databases.entities.Motors
+import com.example.modelingrobots.databases.entities.Regulators
 import com.example.modelingrobots.robots.otherParts.Motor2Simple
 import com.example.modelingrobots.robots.otherParts.PID
+import kotlinx.coroutines.launch
 
 class MotorsViewModel : ViewModel() {
     val r1 = MutableLiveData<Double>(4.0)
@@ -51,5 +55,28 @@ class MotorsViewModel : ViewModel() {
             km2 = km2.value!!,
             ke1 = ke1.value!!,
             ke2 = ke2.value!!)
+    }
+    fun updateViewModelFromDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            var motors = dao.getMotors(filename)[0]
+            motors.apply {
+                setValues1(j1, l1, r1, km1, ke1)
+                setValues2(j2, l2, r2, km2, ke2)
+            }
+        }
+    }
+    fun insertViewDataInDatabase(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            dao.insertMotors(getData(filename))
+        }
+    }
+    fun updateDatabaseFromViewModel(dao: RobotsDao, filename: String) {
+        viewModelScope.launch {
+            dao.updateMotors(getData(filename))
+        }
+    }
+    fun setDefaultValue() {
+        setValues1(0.3, 0.04, 4.0, 1.0, 1.0)
+        setValues2(0.3, 0.04, 4.0, 1.0, 1.0)
     }
 }

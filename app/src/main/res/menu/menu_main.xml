@@ -3,15 +3,10 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.example.modelingrobots.MainActivity">
     <item
-        android:id="@+id/save_config"
+        android:id="@+id/clear_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Сохранить" />
-    <item
-        android:id="@+id/clear_config"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="Очистить настройки" />
+        android:title="Очистить данные" />
     <item
         android:id="@+id/graphicsFragment"
         android:orderInCategory="100"
